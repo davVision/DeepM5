@@ -72,7 +72,7 @@ checkpoint_verbose           = 0               # Verbosity of the checkpoint
 
 # Callback plot
 plotHist_enabled             = True            # Enable the Callback
-plotHist_verbose             = 0               # Verbosity of the callback
+plotHist_verbose             = 1               # Verbosity of the callback
 
 # Data augmentation for training and normalization
 norm_imageNet_preprocess           = False     # Normalize following imagenet procedure
