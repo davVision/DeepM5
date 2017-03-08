@@ -1,0 +1,41 @@
+#===============================================================================
+# EXPERIMENT01:
+#===============================================================================
+# Simplement hem executat el tt100k_classif.py, que entrena
+# la arquitectura VGG16 (from scratch) sobre les imatges (retallades a 64x64)
+# del Dataset Tsinghua-Tencent 100K.
+
+#-------------------------------------------------------------------------------
+# RSULTATS:
+loss: 0.165544054018
+acc: 0.978756372425
+val_loss: 1.7195 (Best: 0.402 @ Epoch 9)
+val_acc: 0.8920 (Best: 0.941 @ Epoch 9)
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_classif.py -e TrafficSignVGG16 -s ./data -l ./tmp
+
+#===============================================================================
+# EXPERIMENT02:
+#===============================================================================
+# Test del model entrenat a EXPERIMENT01.
+# El primer resultat és sobre el Validation Set i el segon sobre el Test Set!!
+
+#-------------------------------------------------------------------------------
+# RSULTATS:
+> Testing the model...
+   Testing time: 55.110243082. FPS: 139.828815281. Seconds per Frame: 0.00715160174955
+   Test metrics:
+      acc: 0.884565494172
+      loss: 1.34266000004
+
+ > Testing the model...
+   Testing time: 52.8318870068. FPS: 145.858882516. Seconds per Frame: 0.00685594173459
+   Test metrics:
+      acc: 0.959122753146
+      loss: 0.533656342127
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_test.py -e TrafficSignVGG16 -s ./data -l ./tmp
