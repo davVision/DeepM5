@@ -5,7 +5,7 @@ dataset_name2                = None            # Second dataset name. None if no
 perc_mb2                     = None            # Percentage of data from the second dataset in each minibatch
 
 # Model
-model_name                   = 'vgg16'      # Model to use ['fcn8' | 'lenet' | 'alexNet' | 'vgg16' |  'vgg19' | 'resnet50' | 'InceptionV3']
+model_name                   = 'InceptionV3'   # Model to use ['fcn8' | 'lenet' | 'alexNet' | 'vgg16' |  'vgg19' | 'resnet50' | 'InceptionV3']
 freeze_layers_from           = None            # Freeze layers from 0 to this layer during training (Useful for finetunning) [None | 'base_model' | Layer_id]
 show_model                   = False           # Show the architecture layers
 load_imageNet                = False           # Load Imagenet weights and normalize following imagenet procedure
@@ -31,9 +31,9 @@ batch_size_test              = 30              # Batch size during testing
 crop_size_train              = None            # Crop size during training (Height, Width) or None
 crop_size_valid              = None            # Crop size during validation
 crop_size_test               = None            # Crop size during testing
-resize_train                 = (224, 224)      # Resize the image during training (Height, Width) or None
-resize_valid                 = (224, 224)      # Resize the image during validation
-resize_test                  = (224, 224)      # Resize the image during testing
+resize_train                 = (299, 299)      # Resize the image during training (Height, Width) or None
+resize_valid                 = (299, 299)      # Resize the image during validation
+resize_test                  = (299, 299)      # Resize the image during testing
 
 # Data shuffle
 shuffle_train                = True            # Whether to shuffle the training data
@@ -87,11 +87,11 @@ norm_zca_whitening                 = False     # Apply ZCA whitening
 cb_weights_method                  = None      # Label weight balance [None | 'median_freq_cost' | 'rare_freq_cost']
 
 # Data augmentation for training
-da_rotation_range                  = 3          # Rnd rotation degrees 0-180
+da_rotation_range                  = 0          # Rnd rotation degrees 0-180
 da_width_shift_range               = 0.0        # Rnd horizontal shift
 da_height_shift_range              = 0.0        # Rnd vertical shift
-da_shear_range                     = 5 * 0.0175 # Shear in radians
-da_zoom_range                      = 0.25       # Zoom
+da_shear_range                     = 0.0        # Shear in radians
+da_zoom_range                      = 0.0        # Zoom
 da_channel_shift_range             = 0.         # Channecf.l shifts
 da_fill_mode                       = 'constant' # Fill mode
 da_cval                            = 0.         # Void image value

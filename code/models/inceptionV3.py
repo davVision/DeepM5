@@ -1,10 +1,10 @@
 # Keras imports
 from keras.models import Model, Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Dense, Dropout, Activation, Flatten, AveragePooling2D
 from keras.layers.convolutional import (Convolution2D, MaxPooling2D,
                                         ZeroPadding2D)
 
-from keras.applications.InceptionV3 import InceptionV3
+from keras.applications.inception_v3 import InceptionV3
 
 # Paper: https://arxiv.org/pdf/1512.00567.pdf
 

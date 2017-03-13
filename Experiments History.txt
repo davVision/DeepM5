@@ -14,7 +14,7 @@ val_acc: 0.8920 (Best: 0.941 @ Epoch 9)
 
 #-------------------------------------------------------------------------------
 # CRIDA:
-python train.py -c ./config/tt100k_classif.py -e TrafficSignVGG16 -s ./data -l ./tmp
+python train.py -c ./config/tt100k_classif.py -e TrafficSignVGG16 -l ./data -s ./data
 
 #===============================================================================
 # EXPERIMENT02:
@@ -25,17 +25,108 @@ python train.py -c ./config/tt100k_classif.py -e TrafficSignVGG16 -s ./data -l .
 #-------------------------------------------------------------------------------
 # RSULTATS:
 > Testing the model...
-   Testing time: 55.110243082. FPS: 139.828815281. Seconds per Frame: 0.00715160174955
+   Testing time: 55.110243082. FPS: 139.828815281. Seconds per Frame: 0.00715
    Test metrics:
       acc: 0.884565494172
       loss: 1.34266000004
 
  > Testing the model...
-   Testing time: 52.8318870068. FPS: 145.858882516. Seconds per Frame: 0.00685594173459
+   Testing time: 52.8318870068. FPS: 145.858882516. Seconds per Frame: 0.00685
    Test metrics:
       acc: 0.959122753146
       loss: 0.533656342127
 
 #-------------------------------------------------------------------------------
 # CRIDA:
-python train.py -c ./config/tt100k_test.py -e TrafficSignVGG16 -s ./data -l ./tmp
+python train.py -c ./config/tt100k_test.py -e TrafficSignVGG16 -l ./data -s ./data
+
+#===============================================================================
+# EXPERIMENT03:
+#===============================================================================
+# Training from scratch de VGG16 per tt100k_classif.py + Data Augmentation +
+# Test
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 0.6773
+acc: 0.9572
+val_loss: 2.6585 (Best: 0.616052299188 @ Epoch 19)
+val_acc: 0.947368448804 (Best: 0.941 @ Epoch 19)
+
+# RSULTATS TEST:
+> Testing the model...
+    Testing time: 48.1898748875. FPS: 159.909109911. Seconds per Frame: 0.00625
+    Test metrics:
+        acc: 0.930998745364
+        loss: 0.768506115447
+
+> Testing the model...
+    Testing time: 47.0235509872. FPS: 163.875331365. Seconds per Frame: 0.00610
+    Test metrics:
+        acc: 0.966649387135
+        loss: 0.441012918404
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_classif.py -e TrafficSignVgg16_DataAugment -l ./data -s ./data
+
+
+#===============================================================================
+# EXPERIMENT04:
+#===============================================================================
+# Training from scratch de Resnet50 per tt100k_classif.py + Test
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 0.0056
+acc: 0.9987
+val_loss: 0.3052 (Best: 0.275187093543 @ Epoch 22)
+val_acc: 0.9501 (Best: 0.962213246205 @ Epoch 22)
+
+# RSULTATS TEST:
+> Testing the model...
+    Testing time: 46.5803868771. FPS: 165.43443532. Seconds per Frame: 0.006044
+    Test metrics:
+        acc: 0.948378757048
+        loss: 0.311271608682
+
+> Testing the model...
+    Testing time: 47.6351320744. FPS: 161.771357912. Seconds per Frame: 0.00618
+    Test metrics:
+        acc: 0.970931762725
+        loss: 0.21676364974
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_classif_resnet50.py -e TrafficSignResNet50 -l ./data -s ./data
+
+
+#===============================================================================
+# EXPERIMENT05:
+#===============================================================================
+# Training from scratch de InceptionV3 per tt100k_classif.py + Test
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 0.0075
+acc: 0.9984
+val_loss: 0.5776 (Best: 0.26655 @ Epoch 20)
+val_acc: 0.9339 (Best: 0.959 @ Epoch 20)
+
+# RSULTATS TEST:
+> Testing the model...
+    Testing time: 63.0431220531. FPS: 122.233794093. Seconds per Frame: 0.00818
+    Test metrics:
+        acc: 0.948378757048
+        loss: 0.59648
+
+> Testing the model...
+    Testing time: 62.6442759037. FPS: 123.012037235. Seconds per Frame: 0.00812
+    Test metrics:
+        acc: 0.9743
+        loss: 0.19740
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+
+python train.py -c ./config/tt100k_classif_InceptionV3.py -e TrafficSignInceptionV3 -l ./data -s ./data
