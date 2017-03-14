@@ -11,6 +11,7 @@ from keras.utils.visualize_util import plot
 from models.vgg import build_vgg
 from models.resnet import build_resnet50
 from models.inceptionV3 import build_inceptionV3
+from models.densenetFCN import build_densenetFCN
 
 # Detection models
 from models.yolo import build_yolo
@@ -20,7 +21,6 @@ from models.fcn8 import build_fcn8
 #from models.unet import build_unet
 #from models.segnet import build_segnet
 #from models.resnetFCN import build_resnetFCN
-#from models.densenetFCN import build_densenetFCN
 
 # Adversarial models
 #from models.adversarial_semseg import Adversarial_Semseg
@@ -78,7 +78,7 @@ class Model_Factory():
     # Creates a Model object (not a Keras model)
     def make(self, cf, optimizer=None):
         if cf.model_name in ['lenet', 'alexNet', 'vgg16', 'vgg19', 'resnet50',
-                             'InceptionV3', 'fcn8', 'unet', 'segnet',
+                             'InceptionV3', 'fcn8', 'unet', 'segnet', 'densenetFCN',
                              'segnet_basic', 'resnetFCN', 'yolo', 'tiny-yolo']:
             if optimizer is None:
                 raise ValueError('optimizer can not be None')

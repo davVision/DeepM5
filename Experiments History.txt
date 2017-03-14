@@ -171,3 +171,14 @@ python train.py -c ./config/bts_classif.py -e VGG16_transfer_learning -l ./data 
 #-------------------------------------------------------------------------------
 # CRIDA:
 python train.py -c ./config/kitti_classif.py -e FineTuneKITTI_fromVGG16_layer9 -l ./data -s ./data
+
+
+#===============================================================================
+# EXPERIMENT08:
+#===============================================================================
+# # https://github.com/titu1994/DenseNet/blob/master/densenet.py
+# TT100k Learning from scratch using DenseNet Architecture from hell!
+#
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_classif_densenet.py -e ttk100_densenet_from_scratch -l ./data -s ./data
