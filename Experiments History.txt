@@ -130,3 +130,44 @@ val_acc: 0.9339 (Best: 0.959 @ Epoch 20)
 # CRIDA:
 
 python train.py -c ./config/tt100k_classif_InceptionV3.py -e TrafficSignInceptionV3 -l ./data -s ./data
+
+#===============================================================================
+# EXPERIMENT06:
+#===============================================================================
+# Transfer learning on BTS from VGG16 trained on tt100k (freezing up to layer 9
+# w/ data augmentation)
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 0.0086
+acc: 0.994
+val_loss: 0.197
+val_acc: 0.987
+
+# RSULTATS TEST:
+> Testing the model...
+  Testing time: 16.519190073. FPS: 152.549851952. Seconds per Frame: 0.0065552
+  Test metrics:
+     acc: 0.986904771555
+     loss: 0.197165446225
+
+> Testing the model...
+  Testing time: 15.301461935. FPS: 164.690145994. Seconds per Frame: 0.0060720
+  Test metrics:
+     acc: 0.986904771555
+     loss: 0.197165446225
+
+#-------------------------------------------------------------------------------
+#CRIDA:
+python train.py -c ./config/bts_classif.py -e VGG16_transfer_learning -l ./data -s ./data
+
+#===============================================================================
+# EXPERIMENT07:
+#===============================================================================
+# PENDENT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Transfer learning on KITTI from VGG16 trained on imagenet (freezing up to layer 9
+# w/ data augmentation)
+#
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/kitti_classif.py -e FineTuneKITTI_fromVGG16_layer9 -l ./data -s ./data

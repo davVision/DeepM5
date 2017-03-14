@@ -1,6 +1,6 @@
 # Dataset
 problem_type                 = 'classification'# ['classification' | 'detection' | 'segmentation']
-dataset_name                 = 'BelgiumTSC'    # Dataset name
+dataset_name                 = 'KITTI'         # Dataset name
 dataset_name2                = None            # Second dataset name. None if not Domain Adaptation
 perc_mb2                     = None            # Percentage of data from the second dataset in each minibatch
 
@@ -8,9 +8,9 @@ perc_mb2                     = None            # Percentage of data from the sec
 model_name                   = 'vgg16'         # Model to use ['fcn8' | 'lenet' | 'alexNet' | 'vgg16' |  'vgg19' | 'resnet50' | 'InceptionV3']
 freeze_layers_from           = 9               # Freeze layers from 0 to this layer during training (Useful for finetunning) [None | 'base_model' | Layer_id]
 show_model                   = False           # Show the architecture layers
-load_imageNet                = False           # Load Imagenet weights and normalize following imagenet procedure
-load_pretrained              = True           # Load a pretrained model for doing finetuning
-weights_file                 = './data/dabrain/Experiments/TT100K_trafficSigns/TrafficSignVgg16_DataAugment/weights.hdf5'  # Training weight file name
+load_imageNet                = True           # Load Imagenet weights and normalize following imagenet procedure
+load_pretrained              = False           # Load a pretrained model for doing finetuning
+weights_file                 = 'weights.hdf5'  # Training weight file name
 
 # Parameters
 train_model                  = True            # Train the model
@@ -18,7 +18,7 @@ test_model                   = False           # Test the model
 pred_model                   = False           # Predict using the model
 
 # Debug
-debug                        = False           # Use only few images for debuging
+debug                        = False            # Use only few images for debuging
 debug_images_train           = 50              # N images for training in debug mode (-1 means all)
 debug_images_valid           = 50              # N images for validation in debug mode (-1 means all)
 debug_images_test            = 50              # N images for testing in debug mode (-1 means all)
@@ -95,12 +95,12 @@ cb_weights_method                  = None      # Label weight balance [None | 'm
 da_rotation_range                  = 3          # Rnd rotation degrees 0-180
 da_width_shift_range               = 0.0        # Rnd horizontal shift
 da_height_shift_range              = 0.0        # Rnd vertical shift
-da_shear_range                     = 5 * 0.0175 # Shear in radians
+da_shear_range                     = 3 * 0.0175 # Shear in radians
 da_zoom_range                      = 0.25       # Zoom
 da_channel_shift_range             = 0.         # Channecf.l shifts
 da_fill_mode                       = 'constant' # Fill mode
 da_cval                            = 0.         # Void image value
-da_horizontal_flip                 = False      # Rnd horizontal flip
+da_horizontal_flip                 = True      # Rnd horizontal flip
 da_vertical_flip                   = False      # Rnd vertical flip
 da_spline_warp                     = False      # Enable elastic deformation
 da_warp_sigma                      = 10         # Elastic deformation sigma
