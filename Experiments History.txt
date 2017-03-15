@@ -24,11 +24,6 @@ python train.py -c ./config/tt100k_classif.py -e TrafficSignVGG16 -l ./data -s .
 
 #-------------------------------------------------------------------------------
 # RSULTATS:
-> Testing the model...
-   Testing time: 55.110243082. FPS: 139.828815281. Seconds per Frame: 0.00715
-   Test metrics:
-      acc: 0.884565494172
-      loss: 1.34266000004
 
  > Testing the model...
    Testing time: 52.8318870068. FPS: 145.858882516. Seconds per Frame: 0.00685
@@ -54,11 +49,6 @@ val_loss: 2.6585 (Best: 0.616052299188 @ Epoch 19)
 val_acc: 0.947368448804 (Best: 0.941 @ Epoch 19)
 
 # RSULTATS TEST:
-> Testing the model...
-    Testing time: 48.1898748875. FPS: 159.909109911. Seconds per Frame: 0.00625
-    Test metrics:
-        acc: 0.930998745364
-        loss: 0.768506115447
 
 > Testing the model...
     Testing time: 47.0235509872. FPS: 163.875331365. Seconds per Frame: 0.00610
@@ -84,11 +74,6 @@ val_loss: 0.3052 (Best: 0.275187093543 @ Epoch 22)
 val_acc: 0.9501 (Best: 0.962213246205 @ Epoch 22)
 
 # RSULTATS TEST:
-> Testing the model...
-    Testing time: 46.5803868771. FPS: 165.43443532. Seconds per Frame: 0.006044
-    Test metrics:
-        acc: 0.948378757048
-        loss: 0.311271608682
 
 > Testing the model...
     Testing time: 47.6351320744. FPS: 161.771357912. Seconds per Frame: 0.00618
@@ -114,11 +99,6 @@ val_loss: 0.5776 (Best: 0.26655 @ Epoch 20)
 val_acc: 0.9339 (Best: 0.959 @ Epoch 20)
 
 # RSULTATS TEST:
-> Testing the model...
-    Testing time: 63.0431220531. FPS: 122.233794093. Seconds per Frame: 0.00818
-    Test metrics:
-        acc: 0.948378757048
-        loss: 0.59648
 
 > Testing the model...
     Testing time: 62.6442759037. FPS: 123.012037235. Seconds per Frame: 0.00812
@@ -145,11 +125,6 @@ val_loss: 0.197
 val_acc: 0.987
 
 # RSULTATS TEST:
-> Testing the model...
-  Testing time: 16.519190073. FPS: 152.549851952. Seconds per Frame: 0.0065552
-  Test metrics:
-     acc: 0.986904771555
-     loss: 0.197165446225
 
 > Testing the model...
   Testing time: 15.301461935. FPS: 164.690145994. Seconds per Frame: 0.0060720
@@ -179,6 +154,21 @@ python train.py -c ./config/kitti_classif.py -e FineTuneKITTI_fromVGG16_layer9 -
 # # https://github.com/titu1994/DenseNet/blob/master/densenet.py
 # TT100k Learning from scratch using DenseNet Architecture from hell!
 #
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 0.0502
+acc: 0.9877
+val_loss: 0.3178 (Best: 0.3178 @ Epoch 20)
+val_acc: 0.9150 (Best: 0.9149 @ Epoch 20)
+
+# RSULTATS TEST:
+Testing time: 36.7570400238. FPS: 209.646913762. Seconds per Frame: 0.0047699
+   Test metrics:
+      acc: 0.950038957234
+      loss: 0.217500867477
+
+
 #-------------------------------------------------------------------------------
 # CRIDA:
 python train.py -c ./config/tt100k_classif_densenet.py -e ttk100_densenet_from_scratch -l ./data -s ./data

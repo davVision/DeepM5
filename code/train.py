@@ -42,7 +42,8 @@ def process(cf):
 
     if cf.test_model:
         # Compute validation metrics
-        model.test(valid_gen)
+        if valid_gen is not None:
+            model.test(valid_gen)
         # Compute test metrics
         model.test(test_gen)
 

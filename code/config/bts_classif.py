@@ -13,8 +13,8 @@ load_pretrained              = True           # Load a pretrained model for doin
 weights_file                 = './data/dabrain/Experiments/TT100K_trafficSigns/TrafficSignVgg16_DataAugment/weights.hdf5'  # Training weight file name
 
 # Parameters
-train_model                  = True            # Train the model
-test_model                   = False           # Test the model
+train_model                  = False            # Train the model
+test_model                   = True           # Test the model
 pred_model                   = False           # Predict using the model
 
 # Debug
