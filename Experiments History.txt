@@ -172,3 +172,90 @@ Testing time: 36.7570400238. FPS: 209.646913762. Seconds per Frame: 0.0047699
 #-------------------------------------------------------------------------------
 # CRIDA:
 python train.py -c ./config/tt100k_classif_densenet.py -e ttk100_densenet_from_scratch -l ./data -s ./data
+
+
+#===============================================================================
+# EXPERIMENT09:
+#===============================================================================
+# Train YOLO V2 detection on TT100k
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 1.1994
+avg_recall: 0.9733
+avg_iou: 0.7337
+val_loss: 1.8753
+val_avg_recall: 0.7170
+val_avg_iou: 0.5917
+
+# RSULTATS TEST:
+Testing time: 224.026482105. FPS: 18.9397251616. Seconds per Frame: 0.0527990766216
+   Test metrics:
+      loss: 1.6225659232
+      avg_recall: 0.961067441469
+      avg_iou: 0.728760613014
+
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/tt100k_detect_yolov2.py -e ttk100_yolov2 -l ./data -s ./data
+
+python eval_detection_fscore.py ./data/dabrain/Experiments/TT100K_detection/ttk100_yolov2/weights.hdf5 ./data/Datasets/detection/TT100K_detection/test
+
+
+
+#===============================================================================
+# EXPERIMENT10:
+#===============================================================================
+# Train YOLO V2 detection on Udacity (10 EPOCHS)
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 3.0778
+avg_recall: 0.7281
+avg_iou: 0.5925
+val_loss: 5.1377
+val_avg_recall: 0.5484
+val_avg_iou: 0.5134
+
+# RSULTATS TEST:
+Testing time: 130.822999001. FPS: 19.109789709. Seconds per Frame: 0.0523291996002
+   Test metrics:
+      loss: 5.2752484375
+      avg_recall: 0.557495593262
+      avg_iou: 0.521185232544
+
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/udacity_detect_yolov2.py -e udacity_yolov2 -l ./data -s ./data
+
+python eval_detection_fscore.py ./data/dabrain/Experiments/Udacity/udacity_yolov2/weights.hdf5 ./data/Datasets/detection/Udacity/test
+
+
+#===============================================================================
+# EXPERIMENT11:
+#===============================================================================
+# Train YOLO V2 detection on Udacity (40 EPOCHS)
+
+#-------------------------------------------------------------------------------
+# RSULTATS TRAIN:
+loss: 2.2474
+avg_recall: 0.8684
+avg_iou: 0.6646
+val_loss: 5.2127
+val_avg_recall: 0.6506
+val_avg_iou: 0.5518
+
+# RSULTATS TEST:
+Testing time: 2510.06966019. FPS: 0.99598829453. Seconds per Frame: 1.00402786407
+   Test metrics:
+      loss: 5.36054545212
+      avg_recall: 0.660971955872
+      avg_iou: 0.56069840889
+
+#-------------------------------------------------------------------------------
+# CRIDA:
+python train.py -c ./config/udacity_detect_yolov2.py -e udacity_yolov2_40epochs -l ./data -s ./data
+
+python eval_detection_fscore.py ./data/dabrain/Experiments/Udacity/udacity_yolov2_40epochs/weights.hdf5 ./data/Datasets/detection/Udacity/test

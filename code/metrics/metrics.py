@@ -233,7 +233,7 @@ def YOLOMetrics(input_shape=(3,640,640),num_classes=45,priors=[[0.25,0.25], [0.5
       intersect_wh = tf.maximum(intersect_wh, 0.0)
       intersect = tf.multiply(intersect_wh[:,:,:,0], intersect_wh[:,:,:,1])
 
-      # calculate the best IOU and metrics 
+      # calculate the best IOU and metrics
       iou = tf.truediv(intersect, _areas + area_pred - intersect)
       best_ious     = tf.reduce_max(iou, [2], True)
       recall        = tf.reduce_sum(tf.to_float(tf.greater(best_ious,0.5)), [1])
@@ -242,7 +242,6 @@ def YOLOMetrics(input_shape=(3,640,640),num_classes=45,priors=[[0.25,0.25], [0.5
       num_gt_obj    = tf.reduce_sum(tf.to_float(tf.greater(gt_obj_areas,tf.zeros_like(gt_obj_areas))), [1])
       avg_iou       = tf.truediv(sum_best_ious, num_gt_obj)
       avg_recall    = tf.truediv(recall, num_gt_obj)
- 
+
       return {'avg_iou':tf.reduce_mean(avg_iou), 'avg_recall':tf.reduce_mean(avg_recall)}
   return _YOLOMetrics
-

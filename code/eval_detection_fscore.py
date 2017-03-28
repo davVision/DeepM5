@@ -12,7 +12,9 @@ from tools.yolo_utils import *
 
 # Input parameters to select the Dataset and the model used
 dataset_name = 'Udacity' #set to TT100K_detection otherwise
-model_name = 'tiny-yolo' #set to yolo otherwise
+#dataset_name = 'TT100K_detection' #set to TT100K_detection otherwise
+#model_name = 'tiny-yolo' #set to yolo otherwise
+model_name = 'yolo' #set to yolo otherwise
 
 # Net output post-processing needs two parameters:
 detection_threshold = 0.6 # Min probablity for a prediction to be considered
@@ -51,8 +53,8 @@ model.load_weights(sys.argv[1])
 
 
 test_dir = sys.argv[2]
-imfiles = [os.path.join(test_dir,f) for f in os.listdir(test_dir) 
-                                    if os.path.isfile(os.path.join(test_dir,f)) 
+imfiles = [os.path.join(test_dir,f) for f in os.listdir(test_dir)
+                                    if os.path.isfile(os.path.join(test_dir,f))
                                     and f.endswith('jpg')]
 
 if len(imfiles) == 0:
@@ -68,7 +70,7 @@ total_true = 0.
 total_pred = 0.
 
 for i,img_path in enumerate(imfiles):
-  
+
   img = image.load_img(img_path, target_size=(input_shape[1], input_shape[2]))
   img = image.img_to_array(img)
   img = img / 255.
@@ -108,12 +110,12 @@ for i,img_path in enumerate(imfiles):
               true_matched[t] = 1
               ok += 1.
               break
-       
+
         # You can visualize/save per image results with this:
-        #im = cv2.imread(img_path)
-        #im = yolo_draw_detections(boxes_pred, im, priors, classes, detection_threshold, nms_threshold)
-        #cv2.imshow('', im)
-        #cv2.waitKey(0)
+        im = cv2.imread(img_path)
+        im = yolo_draw_detections(boxes_pred, im, priors, classes, detection_threshold, nms_threshold)
+        cv2.imshow('', im)
+        cv2.waitKey(0)
 
 
     inputs = []

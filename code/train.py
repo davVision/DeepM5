@@ -49,7 +49,7 @@ def process(cf):
 
     if cf.pred_model:
         # Compute validation metrics
-        model.predict(valid_gen, tag='pred')
+        #model.predict(valid_gen, tag='pred')
         # Compute test metrics
         model.predict(test_gen, tag='pred')
 
